@@ -8,7 +8,11 @@ import { ProductService } from "../../services/product.service";
 })
 export class ProductComponent implements OnInit {
 
-  productId: number = 1;
+
+  form: any = {
+    productId: 1
+  }
+
 
   constructor(private productService: ProductService) { }
 
@@ -16,9 +20,11 @@ export class ProductComponent implements OnInit {
 
   }
 
-  getUserData() {
+  getProductData() {
 
-    this.productService.getProductById(this.productId)
+
+
+    this.productService.getProductById(this.form.productId)
       .then((data) => {
 
         const dataValue: string = JSON.stringify(data);
@@ -28,7 +34,7 @@ export class ProductComponent implements OnInit {
         if (dataLabel) {
           dataLabel.innerHTML = dataValue;
 
-        }else{
+        } else {
           console.error("Data label not found");
         }
 
@@ -40,6 +46,5 @@ export class ProductComponent implements OnInit {
       });
 
   }
-
 
 }

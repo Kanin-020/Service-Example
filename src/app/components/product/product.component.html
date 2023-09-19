@@ -2,9 +2,10 @@
 
   <p>Consultar información de producto</p>
 
-  <button (click)="getUserData()">Consultar</button>
+  <input type="text" [(ngModel)]="form.productId" class="form-control">
+  <button (click)="getProductData()" class="btn btn-primary mb-3">Consultar</button>
 
-  <pre id="data">
+  <pre id="data" class="json">
 
   </pre>
 
